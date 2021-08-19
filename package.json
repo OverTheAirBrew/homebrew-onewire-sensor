@@ -1,0 +1,39 @@
+{
+  "name": "homebrew-onewire-sensor",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prebuild": "del 'dist'",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@overtheairbrew/raspberrypi-one-wire": "^1.0.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.2.3",
+    "@semantic-release/npm": "^7.1.3",
+    "@semantic-release/release-notes-generator": "^9.0.3",
+    "@types/node": "^14.17.10",
+    "@overtheairbrew/homebrew-plugin": "^1.0.3",
+    "@overtheairbrew/socket-io": "^1.0.1",
+    "del-cli": "^4.0.1",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.1.1",
+    "prettier": "^2.3.2",
+    "semantic-release": "^17.4.5",
+    "typedi": "^0.10.0",
+    "typescript": "^4.3.5"
+  }
+}
