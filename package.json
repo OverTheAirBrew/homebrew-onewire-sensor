@@ -1,5 +1,5 @@
 {
-  "name": "@overtheairbrew/homebrew-onewire-sensor",
+  "name": "@overtheairbrew/homebrew-plugin-onewire-sensor",
   "version": "0.0.0",
   "description": "",
   "main": "dist/index.js",
