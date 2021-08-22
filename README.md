@@ -1,1 +1,1 @@
-# homebrew-onewire-sensor
+# homebrew-plugin-onewire-sensor
