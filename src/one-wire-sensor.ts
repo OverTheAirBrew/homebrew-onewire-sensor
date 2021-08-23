@@ -31,4 +31,12 @@ export class OneWireSensor extends Sensor {
     await this.dataRecieved(params.sensor_id, tempReading.celcius);
     return tempReading.celcius;
   }
+
+  public async validate(params: IOneWireParams): Promise<boolean> {
+    if (!params.sensorAddress) {
+      return false;
+    }
+
+    return true;
+  }
 }
