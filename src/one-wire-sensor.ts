@@ -14,7 +14,7 @@ export class OneWireSensor extends Sensor {
 
   constructor() {
     super('one-wire', [
-      new SelectBoxProperty('sensorAddreses', 'Sensor Addresses', true, () =>
+      new SelectBoxProperty('sensorAddress', 'Sensor Address', true, () =>
         this.getSensors(),
       ),
     ]);
