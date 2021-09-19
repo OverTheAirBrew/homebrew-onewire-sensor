@@ -1,7 +1,7 @@
-import { Container, Service } from 'typedi';
 import { Sensor, SensorToken } from '@overtheairbrew/homebrew-plugin';
+import { SelectBoxProperty } from '@overtheairbrew/homebrew-plugin/dist/properties';
 import { OneWireFactory } from '@overtheairbrew/raspberrypi-one-wire';
-import { StringProperty } from '@overtheairbrew/homebrew-plugin/dist/properties';
+import { Container, Service } from 'typedi';
 
 export interface IOneWireParams {
   sensor_id: string;
@@ -14,7 +14,9 @@ export class OneWireSensor extends Sensor {
 
   constructor() {
     super('one-wire', [
-      new StringProperty('sensorAddress', 'Sensor Address', true),
+      new SelectBoxProperty('sensorAddreses', 'Sensor Addresses', true, () =>
+        this.getSensors(),
+      ),
     ]);
     this.factory = Container.get<OneWireFactory>(OneWireFactory);
   }
@@ -24,6 +26,11 @@ export class OneWireSensor extends Sensor {
       `/sys/bus/w1/devices/${address}/w1_slave`,
     );
     return devices.length > 0;
+  }
+
+  private async getSensors() {
+    const sensors = await this.factory.findDevices();
+    return sensors;
   }
 
   public async run(params: IOneWireParams): Promise<number> {
