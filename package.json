@@ -1,7 +1,7 @@
 {
   "name": "@overtheairbrew/homebrew-plugin-onewire-sensor",
   "version": "0.0.0",
-  "description": "",
+  "description": "Allows over the air homebrew to read one wire sensors through the gpio",
   "main": "dist/index.js",
   "files": [
     "dist"
@@ -12,7 +12,10 @@
     "prepare": "husky install",
     "semantic-release": "semantic-release"
   },
-  "author": "",
+  "author": "Over The Air Brew",
+  "keywords": [
+    "over-the-air-homebrew-plugin"
+  ],
   "license": "ISC",
   "dependencies": {
     "@overtheairbrew/raspberrypi-one-wire": "^1.0.2"
