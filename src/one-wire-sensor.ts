@@ -1,11 +1,15 @@
 import { Sensor, SensorToken } from '@overtheairbrew/homebrew-plugin';
-import { SelectBoxProperty } from '@overtheairbrew/homebrew-plugin/dist/properties';
+import {
+  NumberProperty,
+  SelectBoxProperty,
+} from '@overtheairbrew/homebrew-plugin/dist/properties';
 import { OneWireFactory } from '@overtheairbrew/raspberrypi-one-wire';
 import { Container, Service } from 'typedi';
 
 export interface IOneWireParams {
   sensor_id: string;
   sensorAddress: string;
+  offset: number;
 }
 
 @Service({ id: SensorToken, multiple: true })
@@ -17,6 +21,7 @@ export class OneWireSensor extends Sensor {
       new SelectBoxProperty('sensorAddress', 'Sensor Address', true, () =>
         this.getSensors(),
       ),
+      new NumberProperty('offset', false),
     ]);
     this.factory = Container.get<OneWireFactory>(OneWireFactory);
   }
@@ -38,7 +43,11 @@ export class OneWireSensor extends Sensor {
 
     const device = await this.factory.fromDevice(params.sensorAddress);
     const tempReading = await device.current();
-    await this.dataRecieved(params.sensor_id, tempReading.celcius);
-    return tempReading.celcius;
+
+    const offset = params.offset || 0;
+    const tempWithOffset = tempReading.celcius + offset;
+
+    await this.dataRecieved(params.sensor_id, tempWithOffset);
+    return tempWithOffset;
   }
 }

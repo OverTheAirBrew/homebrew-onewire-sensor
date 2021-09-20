@@ -20,7 +20,7 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
-    "@overtheairbrew/homebrew-plugin": "^1.1.5",
+    "@overtheairbrew/homebrew-plugin": "^1.1.6",
     "@overtheairbrew/socket-io": "^1.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
