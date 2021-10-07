@@ -1,6 +1,6 @@
 {
   "name": "@overtheairbrew/homebrew-plugin-onewire-sensor",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Allows over the air homebrew to read one wire sensors through the gpio",
   "main": "dist/index.js",
   "files": [
