@@ -1,4 +1,4 @@
 {
-  "sensorAddress": "Adresse du capteur",
-  "offset": "Décalage"
+  "one-wire.sensorAddress": "Adresse du capteur",
+  "one-wire.offset": "Décalage"
 }

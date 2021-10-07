@@ -1,4 +1,4 @@
 {
-  "sensorAddress": "Sensor Address",
-  "offset": "Offset"
+  "one-wire.sensorAddress": "Sensor Address",
+  "one-wire.offset": "Offset"
 }
